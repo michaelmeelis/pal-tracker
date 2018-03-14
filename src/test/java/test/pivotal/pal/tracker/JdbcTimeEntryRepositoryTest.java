@@ -44,7 +44,7 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(foundEntry.get("id")).isEqualTo(entry.getId());
         assertThat(foundEntry.get("project_id")).isEqualTo(123L);
         assertThat(foundEntry.get("user_id")).isEqualTo(321L);
-        assertThat(((Date)foundEntry.get("date")).toLocalDate()).isEqualTo(LocalDate.parse("2017-01-09"));
+        assertThat((foundEntry.get("date"))).isEqualTo(LocalDate.parse("2017-01-09").toString());
         assertThat(foundEntry.get("hours")).isEqualTo(8);
     }
 
@@ -56,7 +56,7 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(entry.getId()).isNotNull();
         assertThat(entry.getProjectId()).isEqualTo(123);
         assertThat(entry.getUserId()).isEqualTo(321);
-        assertThat(entry.getDate()).isEqualTo(LocalDate.parse("2017-01-09"));
+        assertThat(entry.getDate()).isEqualTo(LocalDate.parse("2017-01-09").toString());
         assertThat(entry.getHours()).isEqualTo(8);
     }
 
@@ -72,7 +72,7 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(timeEntry.getId()).isEqualTo(999L);
         assertThat(timeEntry.getProjectId()).isEqualTo(123L);
         assertThat(timeEntry.getUserId()).isEqualTo(321L);
-        assertThat(timeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-09"));
+        assertThat(timeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-09").toString());
         assertThat(timeEntry.getHours()).isEqualTo(8);
     }
 
@@ -97,14 +97,14 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(timeEntry.getId()).isEqualTo(888L);
         assertThat(timeEntry.getProjectId()).isEqualTo(456L);
         assertThat(timeEntry.getUserId()).isEqualTo(678L);
-        assertThat(timeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-08"));
+        assertThat(timeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-08").toString());
         assertThat(timeEntry.getHours()).isEqualTo(9);
 
         timeEntry = timeEntries.get(1);
         assertThat(timeEntry.getId()).isEqualTo(999L);
         assertThat(timeEntry.getProjectId()).isEqualTo(123L);
         assertThat(timeEntry.getUserId()).isEqualTo(321L);
-        assertThat(timeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-09"));
+        assertThat(timeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-09").toString());
         assertThat(timeEntry.getHours()).isEqualTo(8);
     }
 
@@ -121,7 +121,7 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(updatedTimeEntry.getId()).isEqualTo(1000L);
         assertThat(updatedTimeEntry.getProjectId()).isEqualTo(456L);
         assertThat(updatedTimeEntry.getUserId()).isEqualTo(987L);
-        assertThat(updatedTimeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-10"));
+        assertThat(updatedTimeEntry.getDate()).isEqualTo(LocalDate.parse("2017-01-10").toString());
         assertThat(updatedTimeEntry.getHours()).isEqualTo(10);
     }
 
@@ -140,7 +140,7 @@ public class JdbcTimeEntryRepositoryTest {
         assertThat(foundEntry.get("id")).isEqualTo(timeEntry.getId());
         assertThat(foundEntry.get("project_id")).isEqualTo(456L);
         assertThat(foundEntry.get("user_id")).isEqualTo(322L);
-        assertThat(((Date)foundEntry.get("date")).toLocalDate()).isEqualTo(LocalDate.parse("2017-01-10"));
+        assertThat((foundEntry.get("date"))).isEqualTo(LocalDate.parse("2017-01-10").toString());
         assertThat(foundEntry.get("hours")).isEqualTo(10);
     }
 
